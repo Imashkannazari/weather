@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- تعریف نوع سند HTML -->
+<html lang="fa" dir="rtl">
+<!-- تنظیم زبان به فارسی و جهت متن از راست به چپ -->
+<head>
+    <!-- بخش هد سند -->
+    <meta charset="UTF-8">
+    <!-- تنظیم کدگذاری کاراکترها -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- تنظیم نمایش در دستگاه‌های مختلف -->
+    <title>سایت هواشناسی</title>
+    <!-- عنوان صفحه -->
+    <link rel="stylesheet" href="style.css">
+    <!-- اتصال فایل استایل -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- اتصال فونت آیکون‌ها -->
+</head>
+<body>
+    <!-- بدنه اصلی صفحه -->
+    <div class="container">
+        <!-- کانتینر اصلی -->
+        <header>
+            <!-- بخش هدر -->
+            <h1>سایت هواشناسی</h1>
+            <div class="search-box">
+                <!-- باکس جستجو -->
+                <input type="text" placeholder="نام شهر را وارد کنید...">
+                <!-- فیلد ورودی جستجو -->
+                <button><i class="fas fa-search"></i></button>
+                <!-- دکمه جستجو -->
+            </div>
+        </header>
+
+        <main>
+            <!-- بخش اصلی محتوا -->
+            <div class="weather-card">
+                <!-- کارت نمایش وضعیت آب و هوا -->
+                <div class="weather-info">
+                    <!-- بخش اطلاعات آب و هوا -->
+                    <h2 class="city-name">تهران</h2>
+                    <!-- نام شهر -->
+                    <div class="temperature">
+                        <!-- نمایش دما -->
+                        <span class="temp">25</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="weather-details">
+                        <!-- جزئیات آب و هوا -->
+                        <div class="detail">
+                            <!-- آیتم سرعت باد -->
+                            <i class="fas fa-wind"></i>
+                            <span>سرعت باد: 10 km/h</span>
+                        </div>
+                        <div class="detail">
+                            <!-- آیتم رطوبت -->
+                            <i class="fas fa-tint"></i>
+                            <span>رطوبت: 45%</span>
+                        </div>
+                        <div class="detail">
+                            <!-- آیتم وضعیت هوا -->
+                            <i class="fas fa-cloud"></i>
+                            <span>وضعیت: آفتابی</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-icon">
+                    <!-- آیکون وضعیت آب و هوا -->
+                    <i class="fas fa-sun"></i>
+                </div>
+            </div>
+
+            <div class="forecast">
+                <!-- بخش پیش‌بینی آب و هوا -->
+                <h3>پیش‌بینی 5 روز آینده</h3>
+                <div class="forecast-cards">
+                    <!-- کانتینر کارت‌های پیش‌بینی -->
+                    <div class="forecast-card">
+                        <!-- کارت پیش‌بینی روز شنبه -->
+                        <span class="day">شنبه</span>
+                        <i class="fas fa-sun"></i>
+                        <span class="temp">25°</span>
+                    </div>
+                    <div class="forecast-card">
+                        <!-- کارت پیش‌بینی روز یکشنبه -->
+                        <span class="day">یکشنبه</span>
+                        <i class="fas fa-cloud-sun"></i>
+                        <span class="temp">23°</span>
+                    </div>
+                    <div class="forecast-card">
+                        <!-- کارت پیش‌بینی روز دوشنبه -->
+                        <span class="day">دوشنبه</span>
+                        <i class="fas fa-cloud"></i>
+                        <span class="temp">20°</span>
+                    </div>
+                    <div class="forecast-card">
+                        <!-- کارت پیش‌بینی روز سه‌شنبه -->
+                        <span class="day">سه‌شنبه</span>
+                        <i class="fas fa-cloud-rain"></i>
+                        <span class="temp">18°</span>
+                    </div>
+                    <div class="forecast-card">
+                        <!-- کارت پیش‌بینی روز چهارشنبه -->
+                        <span class="day">چهارشنبه</span>
+                        <i class="fas fa-sun"></i>
+                        <span class="temp">22°</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
