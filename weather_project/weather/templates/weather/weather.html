@@ -1,0 +1,66 @@
+{% extends 'weather/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-4 fw-bold">☀️ وضعیت آب‌وهوا</h1>
+
+    <div class="search-box mx-auto mb-5" style="max-width: 500px;">
+        <form method="get" class="d-flex justify-content-center">
+            <input type="text" name="city" class="form-control me-2 text-end" placeholder="مثلاً shiraz یا karaj">
+            <button type="submit" class="btn btn-success px-4">جستجو</button>
+        </form>
+    </div>
+
+    {% if city %}
+        <div class="card text-center mx-auto mb-4 p-4" style="max-width: 400px;">
+            <div class="weather-icon mb-3">
+                <i class="{{ icon }}"></i>
+            </div>
+            <h2 class="mb-3">{{ city }}</h2>
+            <p class="temperature mb-2">{{ temp }}°C</p>
+            <p class="description">{{ description }}</p>
+        </div>
+
+        <h3 class="text-center mb-4">📅 پیش‌بینی ۵ روز آینده</h3>
+        <div class="row justify-content-center">
+            {% for item in forecast %}
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-3">
+                    <div class="card text-center p-3 h-100">
+                        <div class="weather-icon mb-3">
+                            <i class="{{ item.icon }}"></i>
+                        </div>
+                        <h5 class="date mb-2">{{ item.date }}</h5>
+                        <p class="temperature mb-2">{{ item.temp }}°C</p>
+                        <p class="description">{{ item.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<style>
+.weather-icon {
+    transition: all 0.3s ease;
+    padding: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: inline-block;
+}
+.weather-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(255, 255, 255, 0.2);
+}
+.card {
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+</style>
+{% endblock %}
