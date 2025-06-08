@@ -15,7 +15,7 @@
     <header class="header">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'weather' %}">
+                <a class="navbar-brand" href="{% url 'weather_view' %}">
                     <i class="fas fa-cloud-sun"></i>
                     سامانه هواشناسی
                 </a>
@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'weather' %}">
+                            <a class="nav-link" href="{% url 'weather_view' %}">
                                 <i class="fas fa-home"></i>
                                 صفحه اصلی
                             </a>
@@ -43,10 +43,6 @@
                             </a>
                         </li>
                     </ul>
-                    <button class="btn btn-outline-light">
-                        <i class="fas fa-user"></i>
-                        ورود
-                    </button>
                 </div>
             </div>
         </nav>
@@ -72,7 +68,7 @@
                     <h5>دسترسی سریع</h5>
                     <ul class="footer-links">
                         <li>
-                            <a href="{% url 'weather' %}">
+                            <a href="{% url 'weather_view' %}">
                                 <i class="fas fa-chevron-left"></i>
                                 صفحه اصلی
                             </a>
@@ -95,22 +91,14 @@
                     <h5>تماس با ما</h5>
                     <ul class="footer-contact">
                         <li>
-                            <i class="fas fa-phone"></i>
-                            <span>۰۲۱-۱۲۳۴۵۶۷۸</span>
-                        </li>
-                        <li>
                             <i class="fas fa-envelope"></i>
-                            <span>info@weather.com</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>تهران، خیابان ولیعصر</span>
+                            <span>imashkannazari@gmail.com</span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="mb-0">تمامی حقوق محفوظ است &copy; اشکان نظری</p>
+                <p class="mb-0">Desgined by Ashkan Nazari</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-telegram"></i></a>

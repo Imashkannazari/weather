@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$3jiib!+2x2le)(m3t(@d$g^=))^e=1oqbv*u)dx=rx63^--=d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*", "192.168.1.102"]
 
@@ -128,3 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # برای استفاده از کلید مخفی
 WEATHER_API_KEY = config('WEATHER_API_KEY')
+
+# Custom error pages
+handler404 = 'weather.views.handler404'
