@@ -1,6 +1,6 @@
 {% extends 'weather/base.html' %}
 
-{% block title %}404 - صفحه یافت نشد{% endblock %}
+{% block title %}500 - خطای سرور{% endblock %}
 
 {% block content %}
 <div class="container py-5">
@@ -9,16 +9,16 @@
             <div class="error-card weather-card">
                 <div class="card-body p-5">
                     <div class="error-icon mb-4">
-                        <i class="fas fa-cloud-sun-rain fa-5x text-primary"></i>
+                        <i class="fas fa-exclamation-triangle fa-5x text-warning"></i>
                     </div>
-                    <h1 class="display-4 mb-4">404</h1>
-                    <h2 class="h3 mb-4">صفحه مورد نظر یافت نشد!</h2>
+                    <h1 class="display-4 mb-4">500</h1>
+                    <h2 class="h3 mb-4">خطای سرور!</h2>
                     <p class="lead mb-4">
-                        متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد یا به آدرس دیگری منتقل شده است.
+                        متأسفانه مشکلی در سرور رخ داده است. لطفاً کمی بعد دوباره تلاش کنید.
                     </p>
                     <div class="error-details mb-4">
                         <p class="text-muted">
-                            لطفاً آدرس را بررسی کنید یا به صفحه اصلی بازگردید.
+                            تیم فنی ما در حال بررسی مشکل است.
                         </p>
                     </div>
                     <a href="{% url 'weather:index' %}" class="btn btn-primary btn-lg">
@@ -45,19 +45,17 @@
     }
 
     .error-icon {
-        animation: float 3s ease-in-out infinite;
+        animation: shake 2s ease-in-out infinite;
     }
 
     .error-icon i {
-        background: linear-gradient(135deg, var(--header-gradient));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: var(--warning-color);
     }
 
-    @keyframes float {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
+    @keyframes shake {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-10deg); }
+        75% { transform: rotate(10deg); }
     }
 
     .btn-primary {

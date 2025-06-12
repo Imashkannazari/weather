@@ -1,0 +1,185 @@
+{% extends 'weather/base.html' %}
+
+{% block title %}درباره ما - سامانه هواشناسی{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="about-card weather-card">
+                <div class="card-body p-5">
+                    <div class="text-center mb-5">
+                        <i class="fas fa-cloud-sun-rain fa-4x mb-4 text-primary"></i>
+                        <h1 class="display-4 mb-3">درباره سامانه هواشناسی</h1>
+                        <p class="lead text-muted">
+                            سامانه هوشمند پیش‌بینی وضعیت آب و هوا با استفاده از پیشرفته‌ترین تکنولوژی‌ها
+                        </p>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <div class="feature-card p-4 mb-4">
+                                <i class="fas fa-bullseye fa-2x mb-3 text-primary"></i>
+                                <h3 class="h4 mb-3">ماموریت ما</h3>
+                                <p class="text-muted">
+                                    ما با هدف ارائه اطلاعات دقیق و به‌روز آب و هوایی، به کاربران کمک می‌کنیم تا برنامه‌ریزی بهتری برای فعالیت‌های روزانه خود داشته باشند.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-card p-4 mb-4">
+                                <i class="fas fa-eye fa-2x mb-3 text-primary"></i>
+                                <h3 class="h4 mb-3">چشم‌انداز ما</h3>
+                                <p class="text-muted">
+                                    تلاش می‌کنیم با استفاده از تکنولوژی‌های نوین، به یکی از معتبرترین منابع اطلاعات آب و هوایی در ایران تبدیل شویم.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="h3 mb-4 text-center">ویژگی‌های سامانه</h2>
+                    <div class="row mb-5">
+                        <div class="col-md-4">
+                            <div class="feature-item text-center p-4">
+                                <i class="fas fa-temperature-high fa-2x mb-3 text-primary"></i>
+                                <h4 class="h5 mb-3">پیش‌بینی دقیق</h4>
+                                <p class="text-muted">
+                                    ارائه پیش‌بینی‌های دقیق با استفاده از الگوریتم‌های پیشرفته هوش مصنوعی
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-item text-center p-4">
+                                <i class="fas fa-clock fa-2x mb-3 text-primary"></i>
+                                <h4 class="h5 mb-3">به‌روزرسانی لحظه‌ای</h4>
+                                <p class="text-muted">
+                                    به‌روزرسانی مداوم اطلاعات با استفاده از داده‌های ماهواره‌ای و ایستگاه‌های هواشناسی
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-item text-center p-4">
+                                <i class="fas fa-mobile-alt fa-2x mb-3 text-primary"></i>
+                                <h4 class="h5 mb-3">طراحی واکنش‌گرا</h4>
+                                <p class="text-muted">
+                                    دسترسی آسان به اطلاعات از طریق تمامی دستگاه‌ها با طراحی مدرن و کاربرپسند
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-stack text-center mb-5">
+                        <h2 class="h3 mb-4">تکنولوژی‌های مورد استفاده</h2>
+                        <div class="row justify-content-center">
+                            <div class="col-md-3 col-6">
+                                <div class="tech-item p-3">
+                                    <i class="fab fa-python fa-3x mb-3 text-primary"></i>
+                                    <h5>Python</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="tech-item p-3">
+                                    <i class="fab fa-django fa-3x mb-3 text-primary"></i>
+                                    <h5>Django</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="tech-item p-3">
+                                    <i class="fab fa-bootstrap fa-3x mb-3 text-primary"></i>
+                                    <h5>Bootstrap</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="tech-item p-3">
+                                    <i class="fab fa-js fa-3x mb-3 text-primary"></i>
+                                    <h5>JavaScript</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="{% url 'weather:index' %}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-home me-2"></i>
+                            بازگشت به صفحه اصلی
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .about-card {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-item {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .tech-item {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        margin-bottom: 1rem;
+    }
+
+    .tech-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .tech-item i {
+        transition: all 0.3s ease;
+    }
+
+    .tech-item:hover i {
+        transform: scale(1.1);
+    }
+
+    .btn-primary {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .feature-card, .feature-item, .tech-item {
+            margin-bottom: 1rem;
+        }
+    }
+</style>
+{% endblock %} 

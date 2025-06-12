@@ -1,0 +1,92 @@
+/* Custom styles for the weather application */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    min-height: 100vh;
+}
+
+.weather-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    color: white;
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+}
+
+.search-form {
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    box-shadow: none;
+}
+
+.search-button {
+    background: white;
+    color: #0083b0;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: white;
+    color: #0083b0;
+}
+
+.temperature {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.weather-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.forecast-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.error-message {
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+} 

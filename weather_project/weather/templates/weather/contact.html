@@ -1,0 +1,220 @@
+{% extends 'weather/base.html' %}
+
+{% block title %}تماس با ما - سامانه هواشناسی{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="contact-card weather-card">
+                <div class="card-body p-5">
+                    <div class="text-center mb-5">
+                        <i class="fas fa-envelope-open-text fa-4x mb-4 text-primary"></i>
+                        <h1 class="display-4 mb-3">تماس با ما</h1>
+                        <p class="lead text-muted">
+                            برای ارتباط با ما می‌توانید از طریق روش‌های زیر اقدام کنید
+                        </p>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <div class="contact-info-card p-4 mb-4">
+                                <h3 class="h4 mb-4">اطلاعات تماس</h3>
+                                <ul class="contact-list">
+                                    <li class="mb-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="contact-icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h5 class="mb-1">ایمیل</h5>
+                                                <a href="mailto:imashkannazari@gmail.com" class="text-decoration-none">
+                                                    imashkannazari@gmail.com
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="contact-icon">
+                                                <i class="fab fa-instagram"></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h5 class="mb-1">اینستاگرام</h5>
+                                                <a href="https://instagram.com/imashkannazari" target="_blank" class="text-decoration-none">
+                                                    @imashkannazari
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="contact-icon">
+                                                <i class="fab fa-github"></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h5 class="mb-1">گیت‌هاب</h5>
+                                                <a href="https://github.com/imashkannazari" target="_blank" class="text-decoration-none">
+                                                    @imashkannazari
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex align-items-center">
+                                            <div class="contact-icon">
+                                                <i class="fab fa-linkedin"></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h5 class="mb-1">لینکدین</h5>
+                                                <a href="https://linkedin.com/in/ashkannazari" target="_blank" class="text-decoration-none">
+                                                    Ashkan Nazari
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-form-card p-4">
+                                <h3 class="h4 mb-4">ارسال پیام</h3>
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                            {{ message }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                <form method="POST" action="{% url 'weather:contact' %}">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">نام</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="نام خود را وارد کنید" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">ایمیل</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="ایمیل خود را وارد کنید" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">پیام</label>
+                                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="پیام خود را وارد کنید" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="fas fa-paper-plane me-2"></i>
+                                        ارسال پیام
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="{% url 'weather:index' %}" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-home me-2"></i>
+                            بازگشت به صفحه اصلی
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .contact-card {
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info-card, .contact-form-card {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+
+    .contact-info-card:hover, .contact-form-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--header-gradient);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .contact-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .contact-list a {
+        color: var(--text-color);
+        transition: all 0.3s ease;
+    }
+
+    .contact-list a:hover {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 0.8rem 1rem;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 0 0.2rem rgba(15, 23, 42, 0.1);
+        border-color: var(--primary-color);
+    }
+
+    .btn-primary {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-outline-primary {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .contact-info-card, .contact-form-card {
+            margin-bottom: 1.5rem;
+        }
+    }
+</style>
+{% endblock %} 

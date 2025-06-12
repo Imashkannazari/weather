@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$3jiib!+2x2le)(m3t(@d$g^=))^e=1oqbv*u)dx=rx63^--=d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*", "192.168.1.102"]
 
@@ -57,10 +57,11 @@ ROOT_URLCONF = 'weather_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'weather' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -70,11 +71,15 @@ TEMPLATES = [
 ]
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'weather' / 'static',
 ]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Media files
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 WSGI_APPLICATION = 'weather_project.wsgi.application'
 
@@ -129,5 +134,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # برای استفاده از کلید مخفی
 WEATHER_API_KEY = config('WEATHER_API_KEY')
 
-# Custom error pages
+# Security settings for production
+SECURE_SSL_REDIRECT = False  # Set to True if using HTTPS
+SESSION_COOKIE_SECURE = False  # Set to True if using HTTPS
+CSRF_COOKIE_SECURE = False  # Set to True if using HTTPS
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Custom error handlers
 handler404 = 'weather.views.handler404'
+handler500 = 'weather.views.handler500'
+handler403 = 'weather.views.handler403'
+handler400 = 'weather.views.handler400'

@@ -1,7 +1,9 @@
 import requests
 from django.conf import settings
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from datetime import datetime, timedelta
+from django.contrib import messages
+from .models import ContactTicket
 
 def get_weather_icon(description):
     description = description.lower()
@@ -66,7 +68,7 @@ def get_weather_icon(description):
     
     # حالت پیش‌فرض
     else:
-        return 'fas fa-cloud fa-2x text-secondary', 'معمولی'
+        return 'fas fa-cloud fa-2x text-secondary', 'ابری'
 
 def get_relative_day(date_str):
     today = datetime.now().date()
@@ -196,5 +198,49 @@ def weather_view(request):
 
     return render(request, 'weather/weather.html', context)
 
+def about_view(request):
+    return render(request, 'weather/about.html')
+
+def contact_view(request):
+    """View for the contact page"""
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        
+        if name and email and message:
+            ContactTicket.objects.create(
+                name=name,
+                email=email,
+                message=message
+            )
+            messages.success(request, 'پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.')
+            return redirect('weather:contact')
+        else:
+            messages.error(request, 'لطفاً تمام فیلدها را پر کنید.')
+    
+    return render(request, 'weather/contact.html')
+
 def handler404(request, exception):
+    """
+    Custom 404 error handler
+    """
     return render(request, 'weather/404.html', status=404)
+
+def handler500(request):
+    """
+    Custom 500 error handler
+    """
+    return render(request, 'weather/500.html', status=500)
+
+def handler403(request, exception):
+    """
+    Custom 403 error handler
+    """
+    return render(request, 'weather/403.html', status=403)
+
+def handler400(request, exception):
+    """
+    Custom 400 error handler
+    """
+    return render(request, 'weather/400.html', status=400)
